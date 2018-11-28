@@ -1,0 +1,30 @@
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  background-image: url('https://img00.deviantart.net/1770/i/2018/233/7/d/premier_league_2018___2019_by_jafarjeef-dckrwrn.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+// https://www.thesportsgeek.com/blog/wp-content/uploads/2018/08/premier-league-previes.jpg
+// https://static1.squarespace.com/static/5a12999332601e36d8f2dbc2/t/5b6ab15d0e2e72497ad0ea1d/1533718883175/PREMIER+LEAGUE+POWER+RANKINGS.jpg
+.btn {
+  margin: center;
+  background-color: purple;
+  color: white;
+  justify-content: right;
+}
+
+
+h1 {
+  text-align: center;
+  justify-content: right;
+  font-style: italic;
+  font-family: georgia;
+  color: red;
+}
+
+.toBottom {
+  position: relative;
+  margin-top: 590px;
+  margin-right: 40px;
+}
