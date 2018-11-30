@@ -54,13 +54,78 @@ const onSignOut = event => {
     .catch(ui.signOutFailure)
 }
 
+const onGetTeams = (event) => {
+  event.preventDefault()
+  api.getTeams()
+    .then(ui.getTeamsSuccess)
+    .catch(ui.failure)
+}
 
+const onTeamEdit = (event) => {
+  event.preventDefault()
+  api.getTeams()
+    .then(ui.getTeamEdit)
+    .catch(ui.failure)
+}
+
+const onTeamSubmit = (event) => {
+  event.preventDefault()
+  api.getTeams()
+    .then(ui.getTeamSubmit)
+    .catch(ui.failure)
+}
+
+const onPlayerEdit = (event) => {
+  event.preventDefault()
+  api.getTeams()
+    .then(ui.getPlayerEdit)
+    .catch(ui.failure)
+}
+
+const onPlayerSubmit = (event) => {
+  event.preventDefault()
+  .val
+  api.getTeams()
+    .then(ui.getPlayerSubmit)
+    .catch(ui.failure)
+}
+
+// const onGetPlayer = (event) => {
+//   event.preventDefault()
+//   api.getTeams()
+//     .then(ui.getPlayerSuccess)
+//     .catch(ui.failure)
+// }
+//
+// const onDeleteTeam = (event) => {
+//   event.preventDefault()
+//   ui.deletePlayer()
+//   api.gBooks()
+// }
+//
+// const onDeletePlayer = (event) => {
+//   event.preventDefault()
+//   ui.deletePlayer()
+//   api.gBooks()
+// }
+
+
+const addHandlers = () => {
+  $('#getTeamsButton').on('click', onGetTeams)
+  $('#getPlayerButton').on('click', onGetPlayers)
+  $('#content').on('click', 'button', OnClickRemove)
+}
 
 module.exports = {
   onSignUp,
   onLogIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  addHandlers,
+  onTeamEdit,
+  onTeamSubmit,
+  onPlayerEdit,
+  onPlayerSubmit
 }
 
 // $('#sign-up').on('submit', event.onSignUp)

@@ -28,9 +28,75 @@ const signOut = data => {
     }
   })
 }
+const createTeam = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/team',
+    method: 'POST'
+  })
+}
+
+const createPlayer = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/player',
+    method: 'POST'
+  })
+}
+
+const getTeam = function () {
+  return $.ajax({
+    url: config.apiUrl + '/team',
+    method: 'GET'
+  })
+}
+
+const getPlayers = function (teamId) {
+  return $.ajax({
+    url: config.apiUrl + '/players/' + teamId,
+    method: 'GET'
+  })
+}
+
+const updateTeam = function () {
+  return $.ajax({
+    url: config.apiUrl + '/team',
+    method: 'PATCH'
+  })
+}
+
+const updatePlayer = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/player/' + teamId,
+    method: 'PATCH'
+  })
+}
+
+const deleteTeam = function () {
+  return $.ajax({
+    url: config.apiUrl + '/team',
+    method: 'DELETE'
+  })
+}
+
+// const deletePlayer = function (data) {
+//   return $.ajax({
+//     // url: config.apiUrl + '/player/' + teamId,
+//     method: 'DELETE'
+//   })
+// }
+
+
 
 module.exports = {
   signUp,
   logIn,
-  signOut
+  signOut,
+  createTeam,
+  createPlayer,
+  getTeam,
+  getPlayers,
+  updateTeam,
+  updatePlayer,
+  deleteTeam
+  // deletePlayer
+
 }
