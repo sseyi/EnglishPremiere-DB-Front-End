@@ -84,7 +84,7 @@ const onPlayerEdit = (event) => {
 
 const onPlayerSubmit = (event) => {
   event.preventDefault()
-  .val
+
   api.getTeams()
     .then(ui.getPlayerSubmit)
     .catch(ui.failure)
