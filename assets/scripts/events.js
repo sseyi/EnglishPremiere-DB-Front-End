@@ -31,7 +31,7 @@ const onChangePassword = event => {
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
-const onLogIn = event => {
+const onSignIn = event => {
   console.log('in onSignIn')
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -61,54 +61,52 @@ const onGetTeams = (event) => {
     .catch(ui.failure)
 }
 
-const onTeamEdit = (event) => {
+const onUpdateTeam = (event) => {
   event.preventDefault()
   api.getTeams()
     .then(ui.getTeamEdit)
     .catch(ui.failure)
 }
 
-const onTeamSubmit = (event) => {
+const onCreateTeam = (event) => {
   event.preventDefault()
   api.getTeams()
-    .then(ui.getTeamSubmit)
+    .then(ui.getTeamCreate)
     .catch(ui.failure)
 }
 
-const onPlayerEdit = (event) => {
+const onGetPlayers = (event) => {
+  event.preventDefault()
+  api.getTeams()
+    .then(ui.getPlayersSuccess)
+    .catch(ui.failure)
+}
+
+const onCreatePlayer = (event) => {
+  event.preventDefault()
+  api.getTeams()
+    .then(ui.getPlayerCreate)
+    .catch(ui.failure)
+}
+
+const onUpdatePlayer = (event) => {
   event.preventDefault()
   api.getTeams()
     .then(ui.getPlayerEdit)
     .catch(ui.failure)
 }
 
-const onPlayerSubmit = (event) => {
+const onDeleteTeam = (event) => {
   event.preventDefault()
-
+  ui.deletePlayer()
   api.getTeams()
-    .then(ui.getPlayerSubmit)
-    .catch(ui.failure)
 }
 
-// const onGetPlayer = (event) => {
-//   event.preventDefault()
-//   api.getTeams()
-//     .then(ui.getPlayerSuccess)
-//     .catch(ui.failure)
-// }
-//
-// const onDeleteTeam = (event) => {
-//   event.preventDefault()
-//   ui.deletePlayer()
-//   api.gBooks()
-// }
-//
-// const onDeletePlayer = (event) => {
-//   event.preventDefault()
-//   ui.deletePlayer()
-//   api.gBooks()
-// }
-
+const onDeletePlayer = (event) => {
+  event.preventDefault()
+  ui.deletePlayer()
+  api.gPlayers()
+}
 
 const addHandlers = () => {
   $('#getTeamsButton').on('click', onGetTeams)
@@ -118,14 +116,18 @@ const addHandlers = () => {
 
 module.exports = {
   onSignUp,
-  onLogIn,
+  onSignIn,
   onChangePassword,
   onSignOut,
-  addHandlers,
-  onTeamEdit,
-  onTeamSubmit,
-  onPlayerEdit,
-  onPlayerSubmit
+  onGetTeams,
+  onCreateTeam,
+  onUpdateTeam,
+  onDeleteTeam,
+  onGetPlayers,
+  onCreatePlayer,
+  onUpdatePlayer,
+  onDeletePlayer,
+  addHandlers
 }
 
 // $('#sign-up').on('submit', event.onSignUp)

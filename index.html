@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>EnglishPremiereLeagueDB</title>
+      <title>EnglishPremierLeagueDB</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -13,196 +13,127 @@
     </head>
     <body>
       <h1> ENGLISH PREMIER LEAGUE STANDINGS </h1>
-      <!--Modal: Login / Register Form-->
-      <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog cascading-modal" role="document">
-          <!--Content-->
-        <div class="modal-content" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGOrWwe4sr7Hc2l-B-hw2GFR0w3G50kblfIiS6TDsZPemlUCVo'">
 
-            <!--Modal cascading tabs-->
-            <div class="modal-c-tabs">
+      <p id="message"></p>
 
-              <!-- Nav tabs -->
-              <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fa fa-user mr-1"></i>
-                    Login</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fa fa-user-plus mr-1"></i>
-                    Register</a>
-                </li>
-              </ul>
+    <form id="sign-up" class="border">
+      <fieldset>
+       <legend>Sign up!</legend>
+       <input type="text" name="credentials[email]" placeholder="Email" />
+       <input type="password" name="credentials[password]" placeholder="Password" />
+       <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" />
+       <input type="submit"  value="Sign Up!"/>
+      </fieldset>
+    </form>
 
-              <!-- Tab panels -->
-              <div class="tab-content">
-                <!--Panel 7-->
-                <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+    <form id="sign-in" class="border">
+      <fieldset>
+       <legend>Sign In!</legend>
+       <input type="text" name="credentials[email]" placeholder="Email" />
+       <input type="password" name="credentials[password]" placeholder="Password" />
+       <input type="submit"  value="Sign In!"/>
+     </fieldset>
+    </form>
+    <form id="sign-out" class="border">
+      <fieldset>
+       <legend>Sign Out!</legend>
+       <input type="submit"  value="Log Out!"/>
+      </fieldset>
+    </form>
+<div id='signInResults'><div>
 
-                  <!--Body-->
-                  <div class="modal-body mb-1">
-                    <div class="md-form form-sm mb-5">
-                      <i class="fa fa-envelope prefix"></i>
-                      <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
-                      <label data-error="wrong" data-success="right" for="modalLRInput10">Your email</label>
-                    </div>
+<div id='showTeamResults'></div>
+    <h1>EnglishPremiereLeague TEAMS</h1>
+  <h2>All Teams</h2>
+  <form id='allTeamsForm'>
+   <button type='submit'>ALL Teams</button>
+ </form>
 
-                    <div class="md-form form-sm mb-4">
-                      <i class="fa fa-lock prefix"></i>
-                      <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
-                      <label data-error="wrong" data-success="right" for="modalLRInput11">Your password</label>
-                    </div>
-                    <div class="text-center mt-2">
-                      <button class="btn btn-info">Log in <i class="fa fa-sign-in ml-1"></i></button>
-                    </div>
-                  </div>
-                  <!--Footer-->
-                  <div class="modal-footer">
-                    <div class="options text-center text-md-right mt-1">
-                      <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
-                      <p>Forgot <a href="#" class="blue-text">Password?</a></p>
-                    </div>
-                    <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-                  </div>
-
-                </div>
-                <!--/.Panel 7-->
-
-                <!--Panel 8-->
-                <div class="tab-pane fade" id="panel8" role="tabpanel">
-
-                  <!--Body-->
-                  <div class="modal-body">
-                    <div class="md-form form-sm mb-5">
-                      <i class="fa fa-envelope prefix"></i>
-                      <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                      <label data-error="wrong" data-success="right" for="modalLRInput12">Your email</label>
-                    </div>
-
-                    <div class="md-form form-sm mb-5">
-                      <i class="fa fa-lock prefix"></i>
-                      <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
-                      <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
-                    </div>
-
-                    <div class="md-form form-sm mb-4">
-                      <i class="fa fa-lock prefix"></i>
-                      <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
-                      <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
-                    </div>
-
-                    <div class="text-center form-sm mt-2">
-                      <button class="btn btn-info">Sign up <i class="fa fa-sign-in ml-1"></i></button>
-                    </div>
-
-                  </div>
-                  <!--Footer-->
-                  <div class="modal-footer">
-                    <div class="options text-right">
-                      <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
-                    </div>
-                    <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-                <!--/.Panel 8-->
-              </div>
-
-            </div>
-          </div>
-          <!--/.Content-->
-        </div>
-      </div>
-      <!--Modal: Login / Register Form-->
-
-      <div class="text-center">
-        <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm">LogIn/Register</a>
-      </div>
+<h2>Get Team</h2>
+<form id="getTeamForm">
+ <input type='text' name='team[id]' />
+ <button type='submit' class='btn btn-default'>Teams</button>
+</form>
 
 
-      <div class="modal fade" id="teamModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-#
-        <div class="modal-dialog" role="document">
-          <div class="modal-content1 model-content"  style="background-image: url('https://bm23sportsreviews.files.wordpress.com/2018/08/premier-league-18-19.jpg'">
-            <div class="modal-header">
-              <h5 class="modal-title" id="TeamsModalLabel">Teams</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Team Name:</label>
-                    <textarea class="form-control" id="message-text1#"></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="message-text" class="col-form-label"> Team Stadium Location:</label>
-                   <textarea class="form-control" id="message-text2#"></textarea>
-                </div>
-             <div class="form-group">
-                  <label for="message-text" class="col-form-label">Team Standing:</label>
-                 <textarea class="form-control" id="message-text3#"></textarea>
-                </div>
-             </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="edit1">Edit Entry</button>
-              <button type="button" class="btn btn-primary" id="submit1">Submit Entry</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
+<h2> Create Team</h2>
+<form id="createTeamForm">
+   <label>Team Name</label>
+  <input type='text' name='team[id]' placeholder="Name" />
+  <label>Team Location</label>
+  <input type='text' name='team[location]' placeholder="Home Stadium Name" />
+  <label>Team Standings</label>
+  <input type='text' name='team[standings]' placeholder="Standings"  />
+  <button type='submit' class='btn btn-default'>Create  Team</button>
+ </form>
+
+
+<h2> Update Team</h2>
+<form id="updateTeamForm">
+  <label>Team Name</label>
+  <input type='text' name='team[id]' placeholder="Name" />
+  <label>Team Location</label>
+  <input type='text' name='team[location]' placeholder="Home Stadium Name"  />
+  <label>Team Standings</label>
+  <input type='text' name='team[standings]' placeholder="Standings"  />
+  <button type='submit' class='btn btn-default'>Update Team</button>
+ </form>
+
+<h2> Delete Team</h2>
+<form id="deleteTeamForm">
+  <input type='text' name='team[id]' />
+  <button type='submit' class='btn btn-default'>Delete Team</button>
+ </form>
+<div id='results'></div>
+
+<h2>All Players</h2>
+<form id='allPlayerForm'>
+ <button type='submit'>ALL Players</button>
+</form>
+
+<h2> Get Players</h2>
+<form id="getPlayerForm">
+<input type='text' name='player[id]' />
+<button type='submit' class='btn btn-default'>Players</button>
+</form>
+
+<h2> Create Player</h2>
+<form id="createPlayerForm">
+ <label>Player Name</label>
+<input type='text' name='player[id]' placeholder="First_name" />
+<input type='text' name='player[id]' placeholder="Last_name" />
+<label>Player Age</label>
+<input type='text' name='player[age]' placeholder="Age" />
+<label>Player Position</label>
+<input type='text' name='player[position]' placeholder="Position"  />
+<label>Goals Scored</label>
+<input type='text' name='player[goals]' placeholder="Goals"  />
+<button type='submit' class='btn btn-default'>Create  Player</button>
+</form>
+
+
+<h2> Update Player</h2>
+<form id="updatePlayerForm">
+  <label>Player Name</label>
+ <input type='text' name='player[id]' placeholder="First_name" />
+ <input type='text' name='player[id]' placeholder="Last_name" />
+ <label>Player Age</label>
+ <input type='text' name='player[age]' placeholder="Age" />
+ <label>Player Position</label>
+ <input type='text' name='player[position]' placeholder="Position"  />
+ <label>Goals Scored</label>
+ <input type='text' name='player[goals]' placeholder="Goals"  />
+ <button type='submit' class='btn btn-default'>Create  Player</button>
+</form>
+
+<h2> Delete Player</h2>
+<form id="deletePlayerForm">
+<input type='text' name='player[id]' />
+<button type='submit' class='btn btn-default'>Delete Player</button>
+</form>
+<div id='results2'></div>
 
 
 
-
-      <button type="button" class="btn btn-primary" id="playerbuttonmodal" data-toggle="modal" data-target="#playerModal" data-whatever="PlayersModel">Players</button>
-
-      <div class="modal fade" id="playerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-#
-        <div class="modal-dialog" role="document">
-          <div class="modal-content2 modal-content" style="background-image: url('https://e3.365dm.com/17/10/1096x616/skysports-clinical-graphic-medley-pl-lukaku-kane-salah-jesus-morata_4126093.jpg?20171012080308'">
-            <div class="modal-header">
-              <h5 class="modal-title" id="PlayersModalLabel">Players</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="recipient-name" class="col-form-label">Player First Name:</label>
-                   <textarea class="form-control" id="message-text1"></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="message-text" class="col-form-label"> Player Last Location:</label>
-                   <textarea class="form-control" id="message-text2"></textarea>
-                </div>
-             <div class="form-group">
-                  <label for="message-text" class="col-form-label"> Player Age :</label>
-                  <textarea class="form-control" id="message-text3"></textarea>
-                </div>
-            <div class="form-group">
-                  <label for="message-text" class="col-form-label"> Player Position :</label>
-                  <textarea class="form-control" id="message-text4"></textarea>
-                </div>
-               <div class="form-group">
-                  <label for="message-text" class="col-form-label"> Goals :</label>
-                    <textarea class="form-control" id="message-text5"></textarea>
-
-                </div>
-             </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="edit2">Edit Entry</button>
-              <button type="button" class="btn btn-primary" id="submit2">Submit Entry</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#teamModal" data-whatever="TeamsModel">Teams</button>
-
-   </body>
-   </html>
+  </body>
+</html>

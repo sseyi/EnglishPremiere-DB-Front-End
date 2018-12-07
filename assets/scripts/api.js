@@ -11,7 +11,7 @@ console.log(data)
   })
 }
 
-const logIn = data => {
+const signIn = data => {
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -42,9 +42,9 @@ const createPlayer = function (data) {
   })
 }
 
-const getTeam = function () {
+const getTeams = function () {
   return $.ajax({
-    url: config.apiUrl + '/team',
+    url: config.apiUrl + '/teams',
     method: 'GET'
   })
 }
@@ -88,11 +88,11 @@ const deleteTeam = function () {
 
 module.exports = {
   signUp,
-  logIn,
+  signIn,
   signOut,
   createTeam,
   createPlayer,
-  getTeam,
+  getTeams,
   getPlayers,
   updateTeam,
   updatePlayer,

@@ -1,63 +1,51 @@
-const store = require('./store.js')
-
-const clearText = () => {
-  $('form').trigger('reset')
-}
-
+'use strict'
+$('#signInResults ').hide()
 const signUpSuccess = data => {
-  $('.sign-up-message').html('<p class="blue">Sign Up Successful!</p>')
+  $('#message').text('Signed up succesfully')
+  $('#message').removeClass()
+  $('#message').addClass('success')
   console.log('signUpSuccess ran. Data is:', data)
 }
 
 const signUpFailure = error => {
-  $('.sign-up-message').html('<p class="red">Sign UP Successful!</p>')
+  $('#message').text('Error on Sign Up')
+  $('#message').removeClass()
+  $('#message').addClass('failure')
   console.log('signUpFailure ran. Error is:', error)
 }
-const logInSuccess = data => {
-  $('.sign-in-message').html('<p class="blue">Sign In Successful!</p>')
-  store.user = data.user
+const signInSuccess = data => {
+  $('#message').text('Signed in succesfully')
+  $('#message').removeClass()
+  $('#message').addClass('success')
+  $('#results2').show()
   console.log('signInSuccess ran. Data is:', data)
 }
 
-const logInFailure = error => {
-  $('.sign-in-message').html('<p class="red">Sign In Unsuccessful</p>')
+const signInFailure = error => {
+  $('#message').text('Error on Sign In')
+  $('#message').removeClass()
+  $('#message').addClass('failure')
   console.log('signInFailure ran. Error is:', error)
 }
-const changePasswordSuccess = data => {
-  $('.sign-in-message').html('<p class="blue">Sign In Successful!</p>')
-  store.user = data.user
-  console.log('changePasswordSuccess ran. Data is:', data)
+
+const getTeamsSuccess = response => {
+  $('#showTeamResults').html('')
+  console.log(response)
+  response.teams.forEach(function (team) {
+    const teams = (`
+      <h4> ${team.name} </h4>
+      <p> ${team.standings} </p>
+      <p> ${team.location} </p>
+      <p> ${team.players} </p>
+    `)
+    $('#showTeamResults').append(teams)
+  })
 }
-
-const changePasswordFailure = error => {
-  $('.change-password-message').html('<p class="red">Change Password Unsuccessful</p>')
-  console.log('changePasswordFailure ran. Error is:', error)
-}
-
-  // const teamsTemplate = require('../templates/Teams.handlebars')
-  //
-  // const getTeamsSuccess = (data) => {
-  //   console.log(data)
-  //   const showTeamsHtml = teamsTemplate({ teams: data.teams })
-  //   $('.content').html(showTeamsHtml)
-  // }
-
-
-// const getPlayersSuccess = (data) => {
-//   console.log(data)
-//   const showsPlayersHtml = playersTemplate({ players: data.players })
-//   $('.content').html(showsPlayersHtml)
-// }
-
 
 module.exports = {
   signUpSuccess,
   signUpFailure,
-  logInSuccess,
-  logInFailure,
-  changePasswordSuccess,
-  changePasswordFailure,
-  clearText,
-  // getTeamsSuccess,
-  // getPlayersSucess
+  signInSuccess,
+  signInFailure,
+  getTeamsSuccess
 }
