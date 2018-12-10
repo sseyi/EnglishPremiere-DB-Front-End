@@ -68,7 +68,7 @@ const onUpdateTeam = (event) => {
     .catch(ui.failure)
 }
 
-const onCreateTeam = (event) => {
+const onGetTeamCreate = (event) => {
   event.preventDefault()
   api.getTeams()
     .then(ui.getTeamCreate)
@@ -82,8 +82,9 @@ const onGetPlayers = (event) => {
     .catch(ui.failure)
 }
 
-const onCreatePlayer = (event) => {
+const onGetPlayersCreate= (event) => {
   event.preventDefault()
+  console.log('i have a problem')
   api.getTeams()
     .then(ui.getPlayerCreate)
     .catch(ui.failure)
@@ -91,6 +92,7 @@ const onCreatePlayer = (event) => {
 
 const onUpdatePlayer = (event) => {
   event.preventDefault()
+  console.log('i have a problem')
   api.getTeams()
     .then(ui.getPlayerEdit)
     .catch(ui.failure)
@@ -98,14 +100,14 @@ const onUpdatePlayer = (event) => {
 
 const onDeleteTeam = (event) => {
   event.preventDefault()
-  ui.deletePlayer()
-  api.getTeams()
+    .then(ui.deleteTeam)
+    .catch(ui.failure)
 }
 
 const onDeletePlayer = (event) => {
   event.preventDefault()
-  ui.deletePlayer()
-  api.gPlayers()
+    .then(ui.deletePlayer)
+    .catch(ui.failure)
 }
 
 const addHandlers = () => {
@@ -120,11 +122,10 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onGetTeams,
-  onCreateTeam,
+  onGetTeamCreate,
   onUpdateTeam,
   onDeleteTeam,
-  onGetPlayers,
-  onCreatePlayer,
+  onGetPlayersCreate,
   onUpdatePlayer,
   onDeletePlayer,
   addHandlers
